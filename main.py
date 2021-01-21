@@ -30,15 +30,6 @@ def main(directory,true_values,l):
     labels = training_data[:,0]
     
     
-    f3 = open(directory+'/ids.txt')
-    ids = f3.readlines()
-    ids=np.asarray(ids,dtype=int)
-    xtest=ids[-1]
-    ytest=np.where(ids==xtest)[0][0]+1 
-    true_values.append(ytest)
-    f3.close()
-
-    
     #Train SVM
     clf= SVM(training_features,labels)  
     
@@ -76,7 +67,7 @@ def main(directory,true_values,l):
     f2.write("\n")
     f2.close()
 
-    print("SVM_prediction class :", SVM_prediction)
+    #print("SVM_prediction class :", SVM_prediction)
     
     return SVM_prediction, totalTime    
     
@@ -100,4 +91,4 @@ f2= open("results.txt","w")
 f2.close()
 
 true_values, SVM_prediction = predict()
-calculate_accuracy(true_values, SVM_prediction)
+#calculate_accuracy(true_values, SVM_prediction)

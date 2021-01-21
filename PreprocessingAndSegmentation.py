@@ -19,7 +19,7 @@ def Preprocess(image):
     up, down, left, right = 0, length - 1, 0, width - 1
 
     minWidthOfLines = width/2
-    contours,__ = cv2.findContours(img, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+    yes,contours,no = cv2.findContours(img, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
     offsetHeader = 20
     for i in contours:
         x, y, w, h = cv2.boundingRect(i)
